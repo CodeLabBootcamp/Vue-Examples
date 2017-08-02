@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>rendering array using vue</title>
+      <script src="https://unpkg.com/vue@2.4.2"></script>
+   </head>
+   <body>
+      <div id="root">
+         <ul>
+            <li v-for="(name, index) in names">index = {{index}} - value = {{name}}</li>
+         </ul>
+      </div>
+
+      <script>
+
+         var app = new Vue({
+            el: "#root",
+            data:{
+               names:["Ali","Haidar","Yousif","Sabri"],
+            }
+         });
+      </script>
+   </body>
+</html>
+
+
+<!-- v-for directive بهذا المثال سوينة ارري وراها طبعناها بال  -->

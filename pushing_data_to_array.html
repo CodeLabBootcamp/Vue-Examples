@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <script src="https://unpkg.com/vue@2.4.2"></script>
+   </head>
+   <body>
+      <div id="root">
+
+         <ul>
+            <li v-for="(name, index) in names">index = {{index}} - value = {{name}}</li>
+         </ul>
+
+         <!-- Using Vue Js -->
+         <input type="text" placeholder="enter name" id="inp" v-model="input" @keyup.13="addNewName">
+         <button type="button" v-on:click="addNewName">Add By Using Vuejs</button>
+
+         <!-- Using Js -->
+         <button type="button" onclick="AddName()">Add By Using JS</button>
+
+      </div>
+
+      <script>
+
+         var app = new Vue({
+            el: "#root",
+            data:{
+               names:["Marwan","Jon","Doe","Yousif"],
+               input:"",
+            },
+            methods: {
+               addNewName:function () {
+                  // alert(this.input);
+                  if(this.input == ''){
+                     alert("pleas, enter something");
+                  }
+                  else{
+                     this.names.push(this.input);
+                     this.input  =  '';
+                  }
+               },
+            },
+            // created: function() {
+            //    console.log("hh");
+            // },
+         });
+
+         // if i want to use function outside of vue instance
+         function AddName() {
+            var entered_name  = document.getElementById("inp");
+
+            if(entered_name.value == ''){
+               alert("pleas, enter something");
+            }
+            else{
+              app.names.push(entered_name.value);
+              entered_name.value   =  '';
+            }
+
+         }
+      </script>
+   </body>
+</html>
+
+<!-- vue js وراها عدنة العملية نفسهه باستخدام  jsللارري من خلال ال push هنا تعلمنة شون نسوي  -->
